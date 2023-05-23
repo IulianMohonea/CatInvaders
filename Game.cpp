@@ -119,7 +119,7 @@ void Game::startGame(){
     int ver = 1;
     int state = 1;
     sf:: Clock dtClock;
-    float dt;
+    float dt = 0;
     Timer realtime(0);
 
     // Buttons play/exit start
