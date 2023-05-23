@@ -10,7 +10,7 @@ private:
 public:
 
     // Constructorul implicit
-    Timer(float timer_);
+    explicit Timer(float timer_);
 
     Timer(const Timer& other);
     // Constructorul de copiere
