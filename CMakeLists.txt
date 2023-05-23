@@ -99,7 +99,7 @@ endif()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} main.cpp Entity.h Enemy.h Entities.h Entities.cpp Player.cpp Enemies.h Enemies.cpp Bullets.cpp headers/Bullets.h headers/Bullets.h Game.h Game.cpp Timer.h Timer.cpp Errors.h Errors.cpp)
+add_executable(${PROJECT_NAME} main.cpp Entities.h Entities.cpp Player.cpp Player.h Enemies.h Enemies.cpp Bullets.cpp Bullets.h Game.h Game.cpp Timer.h Timer.cpp Errors.h Errors.cpp)
 
 ###############################################################################
 
