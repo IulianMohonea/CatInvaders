@@ -148,4 +148,4 @@ endif()
 # update name in .github/workflows/cmake.yml:29 when changing "bin" name here
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 # install(DIRECTORY some_dir1 some_dir2 DESTINATION bin)
-install(FILES arial.ttf mouse00.png test.png finalback.png DESTINATION bin)
+install(FILES arial.ttf mouse00.png test.png finalback.png bullet.png DESTINATION bin)
