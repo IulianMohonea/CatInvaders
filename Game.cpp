@@ -275,11 +275,11 @@ void Game::startGame(){
                     bulletVec.erase(bulletVec.begin() + i);
                 }
             }
-            for(int j = 0;j < bulletVec.size();j++){
+            for(size_t j = 0;j < bulletVec.size();j++){
                 bulletPos = bulletVec[j]->get_x_y();
 
 
-                    for (int i = 0; i < enemyVec.size(); i++) {
+                    for (size_t i = 0; i < enemyVec.size(); i++) {
                         enemyPos = enemyVec[i]->get_x_y();
 
                         if (bulletPos.x <= enemyPos.x + 50 and bulletPos.x + 10 >= enemyPos.x and
@@ -336,7 +336,6 @@ void Game::startGame(){
         }
 
     }
-    delete me;
     std::destroy(enemyVec.begin(), enemyVec.end());
     std::destroy(bulletVec.begin(), bulletVec.end());
 }
