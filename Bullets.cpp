@@ -22,6 +22,7 @@ void Bullet::setStarter(sf::Vector2f size, sf::Vector2f position) {
     bullet.setPosition(position);
 }
 void Bullet::setTexture(sf::Texture &help){
+    bullet.setTexture(&help);
 
 }
 

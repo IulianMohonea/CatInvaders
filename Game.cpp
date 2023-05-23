@@ -96,6 +96,9 @@ void Game::startGame(){
     sf::Font font;
     font.loadFromFile("../arial.ttf");
 
+    sf::Texture bulletTexture;
+    bulletTexture.loadFromFile("../bullet.png");
+
 
     sf::Texture backkground;
     backkground.loadFromFile("../finalback.png");
@@ -233,6 +236,7 @@ void Game::startGame(){
             for (auto & i : bulletVec) {
                 if(i->get_hp() > 0){
                     i->movement(-1);
+                    i->setTexture(bulletTexture);
                     i->draw(window);
                 }
 
@@ -304,7 +308,6 @@ void Game::startGame(){
 
             // time
 
-            std::string helper;
 
             // dt //
 
