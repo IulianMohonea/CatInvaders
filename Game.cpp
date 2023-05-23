@@ -269,7 +269,7 @@ void Game::startGame(){
             }
             sf::Vector2f enemyPos;
             sf::Vector2f bulletPos;
-            for(int i = 0;i < bulletVec.size();i++)
+            for(size_t i = 0;i < bulletVec.size();i++)
             {
                 if(bulletVec[i]->get_x_y().y <= 0) {
                     bulletVec.erase(bulletVec.begin() + i);
