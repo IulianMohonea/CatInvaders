@@ -69,18 +69,22 @@ void Game::initiateEnemies() {
 
 void Game::timediff(float dt, float lf){
     if(dt - lf <= 0.3) {
-        throw fireErrors(std::to_string(dt - lf));
+        std::string mesajj;
+        mesajj = std::to_string(dt - lf);
+        throw fireErrors(mesajj);
     }
 
 }
 void Game::allowedMove(int sens){
     if(me->get_x_y().x <= 3 and sens == -1)
     {
-        throw playerErrors("Esti prea la stanga!!");
+        std::string mesajj = "Esti prea la stanga!!";
+        throw playerErrors(mesajj);
     }
     else if (me->get_x_y().x >= 900 and sens == 1)
     {
-        throw playerErrors("Esti prea la dreapta!!");
+        std::string mesajj = "Esti prea la dreapta!!";
+        throw playerErrors(mesajj);
     }
     me->movement(sens);
 }
@@ -151,16 +155,12 @@ void Game::startGame(){
                         dt = dtClock.getElapsedTime().asSeconds();
                         realtime.set_time(dt);
                     }
-                }
-
-                // Check if the "Exit" button is clicked
-                if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
-                    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-                    if (exitButton.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
+                    else if (exitButton.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
                         // Action to perform when "Exit" button is clicked
                         window.close();
                     }
                 }
+
             }
 
             window.clear();
