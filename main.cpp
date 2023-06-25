@@ -1,8 +1,6 @@
 
 #include "Game.h"
 int main() {
-
-    Game game;
-    game.startGame();
+    auto& x = Game::get_app();
     return 0;
 }

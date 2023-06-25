@@ -8,12 +8,20 @@
 
 class Game {
 private:
+    Game() = default;
+
     Entity* me = new Player(3);
     std::vector<Entity*> enemyVec;
     std::vector<Entity*> bulletVec;
 public:
-
-
+    // Singleton
+    Game(const Game&) = delete;
+    Game& operator=(const Game&) = delete;
+    static Game& get_app() {
+        static Game app;
+        app.startGame();
+        return app;
+    }
 
     void startGame();
     void initiatePlayer();

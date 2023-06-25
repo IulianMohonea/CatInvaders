@@ -6,12 +6,16 @@ class Enemy: public Entity
 {
 private:
     sf::RectangleShape enemy;
-     int speed;
+    int speed;
     static char inline mes[50] = "An enemy has just died";
 public:
     Enemy(int hp_, int speed);
     void changeway();
     static void enemyDead();
+
+    // Factory style
+    static Enemy normalEnemy();
+    //
     /*
     void increaseSpeed();
      */

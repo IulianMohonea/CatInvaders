@@ -1,30 +1,24 @@
+template<typename T>
+Timer<T>::Timer(T timer_) : timer(timer_) {}
 
-#include "Timer.h"
-#include <iostream>
-Timer::Timer(float timer_) : timer{timer_}{
+template<typename T>
+Timer<T>::Timer(const Timer& other) : timer(other.timer) {}
 
-}
-Timer:: Timer(const Timer& other) : timer{0} {
-    if (other.timer) {
-        timer = other.timer;
-    }
-}
-
-Timer Timer::operator=(Timer& other) {
-
-    std::swap(timer, other.timer);
+template<typename T>
+Timer<T>& Timer<T>::operator=(const Timer& other) {
+    timer = other.timer;
     return *this;
-
 }
 
-float Timer::get_time(){
+template<typename T>
+T Timer<T>::get_time() {
     return timer;
 }
-void Timer::set_time(float dt) {
+
+template<typename T>
+void Timer<T>::set_time(T dt) {
     timer = dt;
 }
-Timer::~Timer() = default;
 
-
-
-
+template<typename T>
+Timer<T>::~Timer() = default;

@@ -5,6 +5,8 @@
 Enemy ::Enemy(int hp_, int speed_): Entity(hp_),  speed(speed_){
 
 }
+Enemy Enemy:: normalEnemy() { return Enemy(1,2); }
+
 
 void Enemy::setStarter(sf::Vector2f size, sf::Vector2f position) {
 

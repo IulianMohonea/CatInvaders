@@ -1,25 +1,25 @@
-//
-// Created by Iulian on 5/23/2023.
-//
+#ifndef TIMER_H
+#define TIMER_H
 
-
+template<typename T>
 class Timer {
 private:
-    float timer; // Pointer către timer
+    T timer;
 
 public:
-
-    // Constructorul implicit
-    explicit Timer(float timer_);
+    explicit Timer(T timer_);
 
     Timer(const Timer& other);
-    // Constructorul de copiere
 
-    Timer operator=(Timer& other);
-    // Destructorul
+    Timer& operator=(const Timer& other);
+
+    T get_time();
+
+    void set_time(T dt);
+
     ~Timer();
-    float get_time();
-    void set_time(float dt);
-
 };
 
+#include "Timer.cpp" // Includem fisierul .cpp pentru a evita erorile de linker
+
+#endif // TIMER_H

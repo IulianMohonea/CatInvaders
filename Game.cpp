@@ -1,4 +1,4 @@
-
+#include "Timer.h"
 #include "Game.h"
 #include "Player.h"
 #include "Enemies.h"
@@ -8,6 +8,7 @@
 #include <memory>
 #include <iostream>
 
+
 void Game::prepareGame() {
     initiateEnemies();
     initiatePlayer();
@@ -16,7 +17,7 @@ void Game::prepareGame() {
 
 sf::RectangleShape Game::putBackground() {
     sf::Texture backkground;
-    backkground.loadFromFile("../finalback.png");
+    backkground.loadFromFile("finalback.png");
     sf::Vector2f backgroundsize(1000.0f, 1000.0f);
     sf::RectangleShape background(backgroundsize);
     background.setTexture(&backkground);
@@ -24,7 +25,7 @@ sf::RectangleShape Game::putBackground() {
 }
 void Game::initiatePlayer() {
     sf::Texture playerTexture;
-    playerTexture.loadFromFile("../test.png");
+    playerTexture.loadFromFile("test.png");
 
     sf::Vector2f playerposition(450, 900);
     sf::Vector2f playersize(100.0f, 100.0f);
@@ -47,13 +48,14 @@ void Game::initiateEnemies() {
     float actualx = 125;
     float actualy = 50;
     sf::Texture enemyPhoto;
-    enemyPhoto.loadFromFile("../mouse00.png");
+    enemyPhoto.loadFromFile("mouse00.png");
     sf::Vector2f enemySize (50,50);
     for( int i = 0; i < 3; i++)
     {
         for ( int j = 0; j <= 10; j++)
         {
-            Entity* newenemy = new Enemy(1,2);
+            Enemy e = Enemy::normalEnemy();
+            Entity* newenemy = new Enemy(e);
             sf::Vector2f enemyPosition(actualx,actualy);
             newenemy->setStarter(enemySize,enemyPosition);
             enemyVec.push_back(newenemy);
@@ -95,17 +97,17 @@ void Game::startGame(){
 
 
     sf::Texture playerTexture;
-    playerTexture.loadFromFile("../test.png");
+    playerTexture.loadFromFile("test.png");
 
     sf::Font font;
-    font.loadFromFile("../arial.ttf");
+    font.loadFromFile("arial.ttf");
 
     sf::Texture bulletTexture;
-    bulletTexture.loadFromFile("../bullet.png");
+    bulletTexture.loadFromFile("bullet.png");
 
 
     sf::Texture backkground;
-    backkground.loadFromFile("../finalback.png");
+    backkground.loadFromFile("finalback.png");
     sf::Vector2f backgroundsize(1000.0f, 1000.0f);
     sf::RectangleShape background(backgroundsize);
     background.setTexture(&backkground);
@@ -113,7 +115,7 @@ void Game::startGame(){
 
 
     sf::Texture enemyPhoto;
-    enemyPhoto.loadFromFile("../mouse00.png");
+    enemyPhoto.loadFromFile("mouse00.png");
 
 
     std::string help;
@@ -124,7 +126,11 @@ void Game::startGame(){
     int state = 1;
     sf:: Clock dtClock;
     float dt = 0;
-    Timer realtime(0);
+
+    //Class template pt Timer
+    Timer<float>realtime(0.0f);
+
+
 
     // Buttons play/exit start
     sf::RectangleShape playButton(sf::Vector2f(200, 50));
